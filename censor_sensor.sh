@@ -9,13 +9,13 @@ result_file='results.txt'
 
 get_http_request() {
 	# grab the domain off the stack
-	local site="$1"
+	site="$1"
 
 	# build a url
-	local url="http://$site/"
+	url="http://$site/"
 
 	# user agent for curl to use
-	local ua="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0"
+	ua="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0"
 
 	# wait a max of 2 seconds for a response
 	# make the http request and capture header information
