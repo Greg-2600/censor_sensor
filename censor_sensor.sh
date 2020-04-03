@@ -38,16 +38,16 @@ get_http_request() {
 
 get_report() {
 	# number of sites not reachable
-	failure_count=$(grep failure ${result_file}|wc -l)
+	failure_count=$(grep -c failure ${result_file})
 
 	# number of sites reached
-	success_count=$(grep success ${result_file}|wc -l)
+	success_count=$(grep -c success ${result_file})
 
 	# percentage of reachable to unreachable 
 	percent_fail=$(echo "($failure_count / $success_count) * 100"|bc -l|cut -d'.' -f 1)
 
 	# total number of sites to try
-	total_count=$(wc -l ${site_list_file}|awk {'print $1'})
+	total_count=$(wc -l ${site_list_file}|awk '{print $1}')
 
 	# report output
 	echo "#####################################"
